@@ -1,0 +1,21 @@
+<!DOCTYPE htmml>
+    <html>
+        <script>
+            function computerPlay() {
+                // randomly returns rock, paper, or scissors
+            }
+
+            function playRound(playerSelect, computerSelect) {
+                playerSelect = playerSelect.toLowerCase();
+                computerSelect = computerSelect.toLowerCase();
+
+                if (playerSelect === computerSelect) {
+                    return "You both chose " + playerSelect + "! It's a draw!";
+                } else if ((playerSelect === "rock" && computerSelect === "scissors") || ()) {
+                    return "You win!"
+                } else {
+                    return "You lose!"
+                }
+            }
+        </script>
+    </html>
