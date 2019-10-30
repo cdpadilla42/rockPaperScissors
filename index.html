@@ -5,6 +5,16 @@
                 // randomly returns rock, paper, or scissors
             }
 
+            function computerPlay() {
+                var arr = [
+                    "rock",
+                    "paper",
+                    "scissors"
+                ];
+
+                return arr[Math.floor(Math.random()*arr.length)];
+            }
+
             function playRound(playerSelect, computerSelect) {
                 playerSelect = playerSelect.toLowerCase();
                 computerSelect = computerSelect.toLowerCase();
@@ -19,5 +29,7 @@
                     return "You lose!"
                 }
             }
+
+            
         </script>
     </html>
