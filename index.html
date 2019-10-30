@@ -11,7 +11,9 @@
 
                 if (playerSelect === computerSelect) {
                     return "You both chose " + playerSelect + "! It's a draw!";
-                } else if ((playerSelect === "rock" && computerSelect === "scissors") || ()) {
+                } else if ((playerSelect === "rock" && computerSelect === "scissors") || 
+                        (playerSelect === "paper" && computerSelect === "rock") || 
+                        playerSelect === "scissors" && computerSellect === "paper") {
                     return "You win!"
                 } else {
                     return "You lose!"
