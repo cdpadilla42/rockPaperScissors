@@ -4,8 +4,14 @@
             <!-- Add three buttons
             Add a div for displaying results
             Display the running score -->
+
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
         </body>
         <script>
+
+
             var playerScore = 0;
             var computerScore = 0;
 
@@ -28,9 +34,9 @@
                     return;
                 } else if ((playerSelect === "rock" && computerSelect === "scissors") || 
                         (playerSelect === "paper" && computerSelect === "rock") || 
-                        playerSelect === "scissors" && computerSellect === "paper") {
+                        playerSelect === "scissors" && computerSelect === "paper") {
                     playerScore++;
-                    alert("You win!")
+                    alert("You win! " + playerSelect + " beats " + computerSelect + "!")
                     return;
                 // } else if (playerSelect !== "rock" || playerSelect !== "scissors" || 
                 //         playerSelect !== "paper") {
@@ -64,5 +70,21 @@
                     }
                 }
             }
+
+
+            var rockSelect = document.querySelector('#rock')
+            var paperSelect = document.querySelector('#paper')
+            var scissorSellect = document.querySelector('#scissors')
+
+            rockSelect.addEventListener('click', () => {
+                playRound("rock", computerPlay());
+            });
+            paperSelect.addEventListener('click', () => {
+                playRound("paper", computerPlay());
+            });
+            scissorSellect.addEventListener('click', () => {
+                playRound("scissors", computerPlay());
+            });
+
         </script>
     </html>
