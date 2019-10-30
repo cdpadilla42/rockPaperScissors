@@ -4,10 +4,14 @@
             <!-- Add three buttons
             Add a div for displaying results
             Display the running score -->
-
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
+            <div id="button-container">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
+            <div id="round-result">
+                
+            </div>
         </body>
         <script>
 
@@ -28,22 +32,23 @@
             function playRound(playerSelect, computerSelect) {
                 playerSelect = playerSelect.toLowerCase();
                 computerSelect = computerSelect.toLowerCase();
+                var roundResultMessage = document.querySelector('#round-result');
 
                 if (playerSelect === computerSelect) {
-                    alert("You both chose " + playerSelect + "! It's a draw!");
+                    roundResultMessage.textContent = "You both chose " + playerSelect + "! It's a draw!";
                     return;
                 } else if ((playerSelect === "rock" && computerSelect === "scissors") || 
                         (playerSelect === "paper" && computerSelect === "rock") || 
                         playerSelect === "scissors" && computerSelect === "paper") {
                     playerScore++;
-                    alert("You win! " + playerSelect + " beats " + computerSelect + "!")
+                    roundResultMessage.textContent = "You win! " + playerSelect + " beats " + computerSelect + "!"
                     return;
                 // } else if (playerSelect !== "rock" || playerSelect !== "scissors" || 
                 //         playerSelect !== "paper") {
                 //     return "Chose an appropriate weapon."
                 } else {
                     computerScore++
-                    alert("You lose!")
+                    roundResultMessage.textContent = "You lose!"
                     return;
                 }
             }
