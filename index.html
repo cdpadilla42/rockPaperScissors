@@ -1,9 +1,8 @@
 <!DOCTYPE htmml>
     <html>
         <script>
-            function computerPlay() {
-                // randomly returns rock, paper, or scissors
-            }
+            var playerScore = 0;
+            var computerScore = 0;
 
             function computerPlay() {
                 var arr = [
@@ -20,16 +19,45 @@
                 computerSelect = computerSelect.toLowerCase();
 
                 if (playerSelect === computerSelect) {
-                    return "You both chose " + playerSelect + "! It's a draw!";
+                    alert("You both chose " + playerSelect + "! It's a draw!");
+                    return;
                 } else if ((playerSelect === "rock" && computerSelect === "scissors") || 
                         (playerSelect === "paper" && computerSelect === "rock") || 
                         playerSelect === "scissors" && computerSellect === "paper") {
-                    return "You win!"
+                    playerScore++;
+                    alert("You win!")
+                    return;
+                // } else if (playerSelect !== "rock" || playerSelect !== "scissors" || 
+                //         playerSelect !== "paper") {
+                //     return "Chose an appropriate weapon."
                 } else {
-                    return "You lose!"
+                    computerScore++
+                    alert("You lose!")
+                    return;
                 }
             }
 
-            
+            function game() {
+                playerScore = 0;
+                computerScore = 0;
+                // play rounds until winner decleared (use a while loop)
+                while ((playerScore < 5) || (computerScore < 5)) {
+                    var playerSelect = window.prompt("Choose your weapon:", 
+                            "Rock, Paper, or Scissors")
+                    let computerSelect = computerPlay();
+
+                    playRound(playerSelect, computerSelect);
+                    // return results message
+                    // if either value is five, return champion message
+                    if (playerScore === 5) {
+                        console.log("You are the champ!");
+                        break;
+                    }
+                    if (computerScore === 5) {
+                        console.log("Computer wins!");
+                        break;
+                    }
+                }
+            }
         </script>
     </html>
