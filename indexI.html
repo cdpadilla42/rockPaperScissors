@@ -12,6 +12,9 @@
             <div id="round-result">
                 
             </div>
+            <div id="scores">
+                    Player: 0 | Computer: 0
+            </div>
         </body>
         <script>
 
@@ -29,6 +32,22 @@
                 return arr[Math.floor(Math.random()*arr.length)];
             }
 
+            function renderScore() {
+                var div = document.querySelector('#scores')
+
+                if (playerScore === 5) {
+                    div.innerHTML = "YOU ARE THE CHAMPION!"
+                    playerScore = 0;
+                    computerScore = 0;
+                } else if (computerScore === 5) {
+                    div.innerHTML = "ROBOTIC UPRISING COMMENCE!"
+                    playerScore = 0;
+                    computerScore = 0;
+                } else {
+                    div.innerHTML = `Player: ${playerScore} | Computer: ${computerScore}`
+                }
+            }
+
             function playRound(playerSelect, computerSelect) {
                 playerSelect = playerSelect.toLowerCase();
                 computerSelect = computerSelect.toLowerCase();
@@ -36,11 +55,13 @@
 
                 if (playerSelect === computerSelect) {
                     roundResultMessage.textContent = "You both chose " + playerSelect + "! It's a draw!";
+                    renderScore();
                     return;
                 } else if ((playerSelect === "rock" && computerSelect === "scissors") || 
                         (playerSelect === "paper" && computerSelect === "rock") || 
                         playerSelect === "scissors" && computerSelect === "paper") {
                     playerScore++;
+                    renderScore();
                     roundResultMessage.textContent = "You win! " + playerSelect + " beats " + computerSelect + "!"
                     return;
                 // } else if (playerSelect !== "rock" || playerSelect !== "scissors" || 
@@ -48,6 +69,7 @@
                 //     return "Chose an appropriate weapon."
                 } else {
                     computerScore++
+                    renderScore();
                     roundResultMessage.textContent = "You lose!"
                     return;
                 }
