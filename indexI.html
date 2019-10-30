@@ -1,0 +1,68 @@
+<!DOCTYPE htmml>
+    <html>
+        <body>
+            <!-- Add three buttons
+            Add a div for displaying results
+            Display the running score -->
+        </body>
+        <script>
+            var playerScore = 0;
+            var computerScore = 0;
+
+            function computerPlay() {
+                var arr = [
+                    "rock",
+                    "paper",
+                    "scissors"
+                ];
+
+                return arr[Math.floor(Math.random()*arr.length)];
+            }
+
+            function playRound(playerSelect, computerSelect) {
+                playerSelect = playerSelect.toLowerCase();
+                computerSelect = computerSelect.toLowerCase();
+
+                if (playerSelect === computerSelect) {
+                    alert("You both chose " + playerSelect + "! It's a draw!");
+                    return;
+                } else if ((playerSelect === "rock" && computerSelect === "scissors") || 
+                        (playerSelect === "paper" && computerSelect === "rock") || 
+                        playerSelect === "scissors" && computerSellect === "paper") {
+                    playerScore++;
+                    alert("You win!")
+                    return;
+                // } else if (playerSelect !== "rock" || playerSelect !== "scissors" || 
+                //         playerSelect !== "paper") {
+                //     return "Chose an appropriate weapon."
+                } else {
+                    computerScore++
+                    alert("You lose!")
+                    return;
+                }
+            }
+
+            function game() {
+                playerScore = 0;
+                computerScore = 0;
+                // play rounds until winner decleared (use a while loop)
+                while ((playerScore < 5) || (computerScore < 5)) {
+                    var playerSelect = window.prompt("Choose your weapon:", 
+                            "Rock, Paper, or Scissors")
+                    let computerSelect = computerPlay();
+
+                    playRound(playerSelect, computerSelect);
+                    // return results message
+                    // if either value is five, return champion message
+                    if (playerScore === 5) {
+                        console.log("You are the champ!");
+                        break;
+                    }
+                    if (computerScore === 5) {
+                        console.log("Computer wins!");
+                        break;
+                    }
+                }
+            }
+        </script>
+    </html>
